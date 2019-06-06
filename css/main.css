@@ -1,0 +1,402 @@
+/*@import "compass/css3";*/
+
+/*
+  STYLE GUIDE STYLING 
+  Default styling for the style guide 
+  This starter file was provided bt Paul B for Iat 334*/
+*/
+body {
+  font-family: 'Raleway', sans-serif;
+  padding: 2rem;
+}
+
+section:not([id]) {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-top: 1px solid #333;
+}
+
+
+section h3 {
+  margin-bottom: 1em;
+}
+
+section p {
+  margin-top: 0;
+}
+
+section code {
+  background-color: #EEE;
+  padding: 0.5em 0.75em;
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.code-section{
+    background-color: #EEE;
+}
+
+/* 
+  INTERACTIVE ELEMENTS -------------------
+*/
+
+/*Core styling for all buttons*/
+.button{
+    display: inline-block;
+    color: #ffffff; /*white*/
+    background-color: #f3784d; /*orange*/
+    transition-duration: 0.4s;
+}
+
+/* Styling for the navigation button */
+
+.button-nav {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .5em;
+  padding-bottom: 0.3em;
+  border-bottom: 0.2em;
+  border-color: #f3784d;
+  background-color: white;
+  font-weight: bold;
+  color: #52525a;
+  border-bottom-style: solid;
+  text-decoration: none;
+  position: relative;
+  cursor:pointer;
+  z-index:0;
+}
+
+.button-nav:before {
+  background-color: #f3784d; /*orange*/
+  content: "";
+  position: absolute;
+  z-index:-1;
+  top: 0;  left: 0;  right: 0;  bottom: 0;
+  transform: scaleY(0);
+  transform-origin: 0 100%;
+  transition: transform .3s ease-out;
+}
+
+.button-nav:hover:before{
+  transform: scaleY(1);
+}
+
+.button-nav:hover{
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.button-nav:active{
+  animation: pulse-orange 0.2s 1 ease-out;
+  color: #52525a;
+}
+
+/* end of Nav buttons*/
+
+/*animation for submit button*/
+/*based from code at: https://codepen.io/stopsatgreen/pen/hegrm */
+@keyframes pulse-orange {
+  from {
+    box-shadow:  0 0 0 0 rgba(255, 255, 255, 1), /*white*/
+                 0 0 0 0 rgba(243,120,77, 1); /*orange border*/
+  }
+  to {
+    box-shadow:  0 0 0 0.65em rgba(255, 255, 255, 0.5),
+                 0 0 0 1em rgba(243,120,77, 0);
+  }
+}
+
+@keyframes pulse-grey {
+  from {
+    box-shadow:  0 0 0 0 rgba(255, 255, 255, 1), /*white*/
+                 0 0 0 0 rgba(82,82,90, 1); /*grey border*/
+  }
+  to {
+    box-shadow:  0 0 0 0.65em rgba(255, 255, 255, .8),
+                 0 0 0 1em rgba(82,82,90, .25);
+  }
+}
+/*end of animation*/
+
+/*Styling for submit buttons*/
+.button-submit{
+    padding: .3em 0.8em;
+    border-radius: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    border-color: #f3784d;
+    border-width: 0.2em;
+    border-style: solid;
+    box-shadow: 0.2em .2em 0.25em rgba(0, 0, 0, 0.2);
+}
+
+.button-submit:hover, .button-submit:focus{
+  background-color: white;
+  color: #f3784d; 
+  border-color: #f3784d;
+  border-width: 0.2em;
+  border-style: solid;
+}
+
+.button-submit:active{
+  animation: pulse-orange 0.2s 1 ease-out;
+}
+/* end of submit buttons */
+
+/*Styling for Read more button*/
+/* https://css-tricks.com/forums/topic/sweep-to-the-right-transition/ */
+.button-more-info{
+  padding-left: 0.7em;
+  padding-right: 1em;
+  padding-top: .5em;
+  padding-bottom: 0.5em;
+  border-left: 0.3em;
+  border-color: #52525a;
+  border-left-style: solid;
+  text-decoration: none;
+  position: relative;
+  cursor:pointer;
+  z-index:0;
+  box-shadow: 0.2em .2em .25em rgba(0, 0, 0, 0.2);
+}
+
+.button-more-info:before{
+  content: "";
+  position: absolute;
+  z-index:-1;
+  top: 0;  left: 0;  right: 0;  bottom: 0;
+  background: #52525a;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .3s ease-out;
+}
+
+.button-more-info:hover:before{
+  transform: scaleX(1);
+}
+
+.button-more-info:active{
+  animation: pulse-grey 0.2s 1 ease-out;
+  color: #f3784d;
+}
+
+.logo-style{
+  font-weight: bold;
+  color: #f3784d;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .5em;
+  padding-bottom: 0.5em;
+  text-decoration: none;
+}
+
+/*Styling for in-text links */
+
+.inline-text{
+  text-decoration: underline;
+  text-decoration-color: #f3784d;
+  color: black;
+  padding: 0.125em 0.25em;
+  transition: color .125s ease-out;
+
+}
+
+.inline-text:hover, .inline-text:focus{
+  text-decoration: underline;
+  text-decoration-color: #f3784d;
+  color: #f3784d;
+}
+
+.inline-text:active{
+  text-decoration: underline;
+  text-decoration-color: black;
+  color: black;
+}
+/*end of inline text links */
+
+/*Style guide for the input field */
+
+label{
+font-weight: bold;
+padding-right: .5em;
+}
+
+textarea[name=input]{
+  color: #52525a;
+  vertical-align: top;
+  text-align: left;
+  padding: 0.75em;
+  width: 20em;
+  /*height: 10em;*/
+  border-style: solid;
+  border-radius: .5em;
+  border-width: .125em;
+  border-color: #52525a;
+  resize: vertical;
+  overflow: auto;
+  box-shadow: 0.2em .2em .25em rgba(0, 0, 0, 0.2);
+}
+
+.expand-entry {
+  color: #52525a;
+  padding: 0.75em;
+  width: 24em;
+  border-style: solid;
+  border-radius: .5em;
+  border-color: #52525a;
+  resize: vertical;
+  overflow: auto;
+  box-shadow: 0.2em .2em .25em rgba(0, 0, 0, 0.2);
+}
+
+input[id=search]{
+  color: #52525a;
+  width: 150px;
+  /*box-sizing: border-box;*/
+  /*border: 2px solid #ccc;*/
+  border-style: solid;
+  border-color: #f3784d;
+  border-radius: .5em;
+  background-color: white;
+  background-image: url('https://www.w3schools.com/css/searchicon.png');
+  background-position: 0.75em 0.45em;
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+  /*box-shadow: 0 .2em .375em 0 rgba(0, 0, 0, 0.2), 0 .375em 1em 0 rgba(0, 0, 0, 0.1);*/
+  /*overflow-y: visible;*/
+  padding: .4em;
+  padding-left: 2.5em;
+  padding-right: .5em;
+  -webkit-transition: width 0.4s ease-in-out;
+  -webkit-fill-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  }
+
+  input[id=search]:focus {
+  width: -webkit-fill-available;
+  /*width: 100%;*/
+}
+
+  /* input fields label grid*/
+
+
+/* 
+  TEXT ELEMENTS -------------------
+*/
+
+h1,h2,h3,h4,h4,h5,h6{
+font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+  font-size: 2.5rem;
+}
+
+h2{
+  font-weight: 800;
+  font-size: 1.5625rem;
+  color: #f3784d;
+}
+
+h3{
+  font-size: 1.125rem;
+}
+
+h4{
+  margin-bottom: .75em;
+  margin-top: 0;
+}
+
+
+
+ul{
+list-style-image: url(http://www.websitebullets.com/bullet/215/2.gif); 
+list-style-position: inside;
+}
+
+ol {list-style: none; counter-reset: li}
+
+li {counter-increment: li}
+
+ol li::before {content: counter(li); color: #f3784d;
+    display: inline-block; width: 1em; margin-left: -1.5em;
+    margin-right: 0.5em; text-align: right; direction: rtl}
+
+
+
+
+/* 
+  COMBINED ELEMENTS -------------------
+*/
+
+
+.container-nav{
+display: inline-flex;
+background: white;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  /*-webkit-flex-flow: row wrap;*/
+  justify-content: flex-end;
+}
+
+.container-nav > * {
+  flex: 1 100%;
+}
+
+.main-nav-item{
+  flex: 0 0 0;
+  justify-content: flex-end;
+}
+
+.main-nav-search{
+  flex: 1 0 auto;
+  padding-right: .2em;
+}
+
+.main-nav-logo{
+  flex: 0 0 0;
+  justify-content: flex-start;
+}
+
+.all-card-containers{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.card-container{
+  display: flex;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 10em;
+}
+
+.card-container:hover{
+  box-shadow: 0px 0px 1.25em .25em rgba(0, 0, 0, 0.1);
+}
+
+.image-conatiner{
+  padding-top: 1em;
+}
+
+.card-text-container{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+.card-price{
+  font-size: 0.75em;
+  text-align: center;
+}
+
+@media (min-width: 30em){ 
+  .container{
+    flex-direction: row;
+  }
+}
